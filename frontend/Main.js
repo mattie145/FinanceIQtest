@@ -65,11 +65,6 @@ document.getElementById("next-btn").addEventListener("click", () => {
 
 // ===================== RESTART =====================
 document.getElementById("restart-btn").addEventListener("click", () => {
-  document.body.classList.remove("mode-genz", "mode-millennial", "mode-elder");
-  document.getElementById("name-input").value = "";
-  document.getElementById("age-input").value = "";
-  document.querySelectorAll(".radio-btn").forEach((b) => b.classList.remove("selected"));
-  window.ratings = {};
-  setState({ userExp: "", ageMode: "default" });
-  showScreen("intro-screen");
+  // Navigate to self-assessment home page
+  window.location.href = "../self-rating-dropdown.html";
 });

@@ -1,7 +1,7 @@
 // ===================== MAIN ORIGINAL — event listeners & helpers =====================
 // Multiple-choice quiz with score tracking
 import { questions } from "./questions-original.js";
-import { setState, applyAgeMode } from "./state.js";
+import { setState } from "./state.js";
 import { renderQuestion } from "./quiz-original.js";
 import { showResults } from "./results-original.js";
 
@@ -39,7 +39,7 @@ document.getElementById("start-btn").addEventListener("click", () => {
   if (!selectedGeneration) { alert("Pick your generation!"); return; }
   if (!userExp) { alert("Pick your experience level!"); return; }
 
-  applyAgeMode(modeFromData);
+  // Color scheme is now static — theme switching disabled
   setState({ userName: name, userGeneration: selectedGeneration, ageMode: modeFromData, currentQ: 0, score: 0 });
 
   showScreen("quiz-screen");
@@ -62,7 +62,6 @@ document.getElementById("next-btn").addEventListener("click", () => {
 
 // ===================== RESTART =====================
 document.getElementById("restart-btn").addEventListener("click", () => {
-  document.body.classList.remove("mode-genz", "mode-millennial", "mode-elder");
   document.getElementById("name-input").value = "";
   document.getElementById("age-input").value = "";
   document.querySelectorAll(".radio-btn").forEach((b) => b.classList.remove("selected"));
