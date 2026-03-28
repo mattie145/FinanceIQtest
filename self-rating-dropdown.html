@@ -14,31 +14,65 @@
   <link rel="stylesheet" href="frontend/results.css">
   <link rel="stylesheet" href="frontend/themes.css">
   <style>
-    select#self-rating {
-      width: 100%;
-      background: #1c1c28;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      color: var(--text);
-      font-family: 'Space Mono', monospace;
-      font-size: 1rem;
-      padding: 14px 16px;
-      outline: none;
-      appearance: none;
-      -webkit-appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%2300ff88' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 16px center;
-      cursor: pointer;
-      transition: border-color .2s;
+    .slider-container {
+      display: flex;
+      align-items: center;
+      gap: 16px;
       margin-bottom: 24px;
     }
-    select#self-rating:focus {
-      border-color: var(--accent);
+    
+    input#self-rating {
+      flex: 1;
+      height: 8px;
+      border-radius: 5px;
+      background: linear-gradient(to right, var(--border), var(--accent));
+      outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+      cursor: pointer;
     }
-    select#self-rating option {
-      background: #1c1c28;
-      color: var(--text);
+    
+    input#self-rating::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--accent);
+      cursor: pointer;
+      border: 2px solid #1c1c28;
+      box-shadow: 0 0 8px rgba(0, 255, 136, 0.4);
+      transition: all .2s;
+    }
+    
+    input#self-rating::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+      box-shadow: 0 0 12px rgba(0, 255, 136, 0.6);
+    }
+    
+    input#self-rating::-moz-range-thumb {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--accent);
+      cursor: pointer;
+      border: 2px solid #1c1c28;
+      box-shadow: 0 0 8px rgba(0, 255, 136, 0.4);
+      transition: all .2s;
+    }
+    
+    input#self-rating::-moz-range-thumb:hover {
+      transform: scale(1.2);
+      box-shadow: 0 0 12px rgba(0, 255, 136, 0.6);
+    }
+    
+    .slider-value {
+      min-width: 45px;
+      text-align: center;
+      font-family: 'Space Mono', monospace;
+      font-size: 1rem;
+      color: var(--accent);
+      font-weight: 700;
     }
   </style>
 </head>
@@ -63,22 +97,13 @@
         <option value="Generation Alpha" data-mode="genz">👶 Generation Alpha (2013–2025)</option>
         <option value="Generation Beta" data-mode="genz">Generation Beta (2026+)</option>
       </select>
-      <label>Which best describes you?</label>
+      <label>What is your financial literacy level?</label>
       <div class="radio-group" id="exp-group">
         <div class="radio-btn" data-val="none">💀 Zero clue</div>
         <div class="radio-btn" data-val="some">🧩 Some basics</div>
         <div class="radio-btn" data-val="good">📈 Pretty solid</div>
         <div class="radio-btn" data-val="pro">🏦 Finance nerd</div>
       </div>
-      <label for="self-rating">Rate your overall finance knowledge (1–5)</label>
-      <select id="self-rating">
-        <option value="">Select a rating...</option>
-        <option value="1">1 — No knowledge at all</option>
-        <option value="2">2 — A little knowledge</option>
-        <option value="3">3 — Some knowledge</option>
-        <option value="4">4 — Good knowledge</option>
-        <option value="5">5 — Expert knowledge</option>
-      </select>
     </div>
     <button class="btn" id="start-btn">Let's Go →</button>
     <div style="text-align:center; margin-top:2rem;">
@@ -110,6 +135,8 @@
   </div>
 
 </div>
+
+
 
 <script type="module" src="frontend/main.js"></script>
 </body>
