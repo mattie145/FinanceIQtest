@@ -1,0 +1,36 @@
+/* ===================== SCREENS ===================== */
+.screen {
+  display: none;
+  animation: fadeUp 0.4s ease both;
+}
+.screen.active {
+  display: block;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ===================== INTRO ===================== */
+#intro-screen {
+  text-align: center;
+}
+
+.logo {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.4rem, 8vw, 4rem);
+  background: linear-gradient(135deg, var(--accent), #00c8ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.tagline {
+  color: var(--muted);
+  font-size: .85rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}

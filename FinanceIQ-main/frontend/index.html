@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finance IQ — Know Your Money</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Space+Mono:wght@400;700&family=Georgia:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="screens.css">
+  <link rel="stylesheet" href="components.css">
+  <link rel="stylesheet" href="themes.css">
+  <style>
+    .home-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .home-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .home-logo {
+      font-size: 3rem;
+      font-weight: 800;
+      font-family: 'Syne', sans-serif;
+      margin-bottom: 0.5rem;
+      letter-spacing: 2px;
+    }
+
+    .home-tagline {
+      font-size: 1.3rem;
+      color: #666;
+      margin-bottom: 1rem;
+    }
+
+    .home-description {
+      font-size: 1.1rem;
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 3rem;
+    }
+
+    .quiz-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .quiz-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .quiz-card {
+      background: #f9f9f9;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+    }
+
+    .quiz-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transform: translateY(-4px);
+    }
+
+    .quiz-card h2 {
+      color: var(--accent);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      font-family: 'Syne', sans-serif;
+    }
+
+    .quiz-card p {
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .quiz-card .btn {
+      width: 100%;
+      padding: 0.8rem;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+      border-radius: 6px;
+      background: var(--accent);
+      color: white;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .quiz-card .btn:hover {
+      opacity: 0.9;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .home-footer {
+      text-align: center;
+      color: #999;
+      font-size: 0.9rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid #eee;
+    }
+  </style>
+</head>
+<body>
+  <div class="home-container">
+    <div class="home-header">
+      <div class="home-logo">💸 Finance IQ</div>
+      <p class="home-tagline">Know your money. Own your future.</p>
+    </div>
+
+    <div class="home-description">
+      <p>Welcome! The Finance IQ platform offers two different ways to assess and improve your financial literacy. Choose the quiz that works best for you and start your journey today.</p>
+    </div>
+
+    <div class="quiz-cards">
+      <!-- Quiz 1: Multiple Choice -->
+      <div class="quiz-card">
+        <h2>📚 Financial Knowledge Quiz</h2>
+        <p>
+          Test your understanding of core financial concepts through multiple-choice questions. 
+          Covering topics like budgeting, investing, credit, taxes, and more. 
+          Get instant feedback and learn why the correct answer matters.
+        </p>
+        <a href="quiz-original.html" class="btn">Take the Knowledge Quiz →</a>
+      </div>
+
+      <!-- Quiz 2: Self-Assessment -->
+      <div class="quiz-card">
+        <h2>🧠 Financial Habits Self-Assessment</h2>
+        <p>
+          Evaluate your financial confidence and habits through self-assessment questions. 
+          Rate yourself on a 1-5 scale to identify areas for improvement. 
+          Receive personalized guidance and actionable learning resources.
+        </p>
+        <a href="quiz-assessment.html" class="btn">Take the Assessment →</a>
+      </div>
+    </div>
+
+    <div class="home-footer">
+      <p>Both quizzes are designed to help you build a stronger financial foundation. Start with whichever appeals to you most!</p>
+    </div>
+  </div>
+</body>
+</html>

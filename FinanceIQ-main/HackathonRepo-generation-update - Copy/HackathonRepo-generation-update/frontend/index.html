@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>💸 Finance IQ — Know Your Money</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Space+Mono:wght@400;700&family=Georgia:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+
+  <!-- Split CSS: load order matters — base vars first, themes last -->
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="screens.css">
+  <link rel="stylesheet" href="components.css">
+  <link rel="stylesheet" href="quiz.css">
+  <link rel="stylesheet" href="results.css">
+  <link rel="stylesheet" href="themes.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- INTRO -->
+  <div id="intro-screen" class="screen active">
+    <div class="logo">💸 Finance IQ</div>
+    <p class="tagline">Know your money. Own your future.</p>
+    <div class="card">
+      <label>What's your name?</label>
+      <input type="text" id="name-input" placeholder="Enter your name..." maxlength="30">
+     <label for="gen-select">Your Generation</label>
+<select id="gen-select">
+  <option value="">Select your generation...</option>
+  <option value="silent">Silent Generation (1928–1945)</option>
+  <option value="boomer">Baby Boomers (1946–1964)</option>
+  <option value="genx">Generation X (1965–1980)</option>
+  <option value="millennial">Millennials / Gen Y (1981–1996)</option>
+  <option value="genz">Generation Z (1997–2012)</option>
+  <option value="alpha">Generation Alpha (2013–2025)</option>
+  <option value="beta">Generation Beta (~2025 onward)</option>
+</select>
+
+      <label>Which best describes you?</label>
+      <div class="radio-group" id="exp-group">
+        <div class="radio-btn" data-val="none">💀 Zero clue</div>
+        <div class="radio-btn" data-val="some">🧩 Some basics</div>
+        <div class="radio-btn" data-val="good">📈 Pretty solid</div>
+        <div class="radio-btn" data-val="pro">🏦 Finance nerd</div>
+      </div>
+    </div>
+    <button class="btn" id="start-btn">Let's Go →</button>
+  </div>
+
+  <!-- QUIZ -->
+  <div id="quiz-screen" class="screen">
+    <div class="progress-bar">
+      <div class="progress-fill" id="progress-fill"></div>
+    </div>
+    <div class="q-meta">
+      <span class="q-num" id="q-num-label">Question 1 of 10</span>
+      <span class="q-category" id="q-cat-label">Category</span>
+    </div>
+    <div class="question-text" id="question-text"></div>
+    <div class="options" id="options-container"></div>
+    <div class="feedback-box" id="feedback-box"></div>
+    <div class="next-btn-wrap">
+      <button class="btn" id="next-btn" style="display:none">Next →</button>
+    </div>
+  </div>
+
+  <!-- RESULTS -->
+  <div id="results-screen" class="screen">
+    <div id="results-content"></div>
+    <div class="restart-wrap">
+      <button class="btn btn-outline" id="restart-btn">Play Again 🔄</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- type="module" enables ES module imports across all JS files -->
+<script type="module" src="main.js"></script>
+</body>
+</html>
