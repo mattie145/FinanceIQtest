@@ -39,7 +39,7 @@ export function buildExcellentResults(userName, generation) {
       </div>
     </div>
     <div style="text-align:center; margin-top:2rem;">
-      <button class="btn" onclick="document.location='home.html'">← Back Home</button>
+      <button class="btn" onclick="document.location='quiz-assessment.html'">Do Next Assessment →</button>
     </div>`;
 }
 
@@ -72,7 +72,7 @@ export function buildLearningAreasResults(userName, generation, areas) {
       </p>
     </div>
     <div style="text-align:center; margin-top:2rem;">
-      <button class="btn" onclick="document.location='home.html'">← Back Home</button>
+      <button class="btn" onclick="document.location='quiz-assessment.html'">Do Next Assessment →</button>
     </div>`;
 }
 
