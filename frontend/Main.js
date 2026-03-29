@@ -1,5 +1,4 @@
 // ===================== MAIN — event listeners & helpers =====================
-// Self-assessment questionnaire with 1-5 rating scale
 import { questions } from "./questions.js";
 import { setState, applyAgeMode } from "./state.js";
 import { renderQuestion } from "./quiz.js";
@@ -10,9 +9,8 @@ export function showScreen(id) {
   document.querySelectorAll(".screen").forEach((s) => s.classList.remove("active"));
   const el = document.getElementById(id);
   el.classList.add("active");
-  // Re-trigger animation
   el.style.animation = "none";
-  el.offsetHeight; // force reflow
+  el.offsetHeight;
   el.style.animation = "";
 }
 
@@ -31,18 +29,20 @@ document.getElementById("start-btn").addEventListener("click", () => {
   const selectedGeneration = generationSelect.value;
   const modeFromData = generationSelect.options[generationSelect.selectedIndex].getAttribute("data-mode");
 
-  // Read userExp directly from the selected button
   const selectedBtn = document.querySelector(".radio-btn.selected");
   const userExp = selectedBtn ? selectedBtn.dataset.val : "";
 
-  if (!name)    { alert("Hey — drop your name first!"); return; }
-  if (!selectedGeneration) { alert("Pick your generation!"); return; }
-  if (!userExp) { alert("Pick your experience level!"); return; }
+  const selfRatingElement = document.getElementById("self-rating");
+  const selfRating = selfRatingElement ? selfRatingElement.value : "";
+
+  if (!name)              { alert("Hey — drop your name first!"); return; }
+  if (!selectedGeneration){ alert("Pick your generation!"); return; }
+  if (!userExp)           { alert("Pick your experience level!"); return; }
+  if (selfRatingElement && !selfRating) { alert("Please rate your finance knowledge!"); return; }
 
   applyAgeMode(modeFromData);
   setState({ userName: name, userGeneration: selectedGeneration, ageMode: modeFromData, currentQ: 0 });
 
-  // Initialize ratings storage
   if (!window.ratings) window.ratings = {};
 
   showScreen("quiz-screen");
@@ -51,7 +51,6 @@ document.getElementById("start-btn").addEventListener("click", () => {
 
 // ===================== QUIZ NAV =====================
 document.getElementById("next-btn").addEventListener("click", () => {
-  // Import currentQ lazily to get fresh value after setState
   import("./state.js").then(({ currentQ }) => {
     const next = currentQ + 1;
     setState({ currentQ: next });
@@ -65,6 +64,21 @@ document.getElementById("next-btn").addEventListener("click", () => {
 
 // ===================== RESTART =====================
 document.getElementById("restart-btn").addEventListener("click", () => {
-  // Navigate to self-assessment home page
-  window.location.href = "../self-rating-dropdown.html";
+  window.ratings = {};
+  setState({ currentQ: 0, score: 0, answered: false, userName: "", userGeneration: "", ageMode: "", userExp: "" });
+
+  // Clear form
+  document.getElementById("name-input").value = "";
+  document.getElementById("generation-input").selectedIndex = 0;
+  document.querySelectorAll(".radio-btn").forEach((b) => b.classList.remove("selected"));
+
+  const selfRating = document.getElementById("self-rating");
+  if (selfRating) selfRating.value = selfRating.min || 1;
+
+  showScreen("intro-screen");
 });
+
+// ===================== NEXT ASSESSMENT =====================
+document.getElementById("next-assessment-btn").addEventListener("click", () => {
+  // Detect which page we're on and s
+  
